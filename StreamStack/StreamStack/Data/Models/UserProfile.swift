@@ -6,13 +6,17 @@
 //
 
 import Foundation
-import SwiftData
+import FirebaseFirestore
 
-@Model
-final class UserProfile {
-    var timestamp: Date
+
+final class UserProfile: Identifiable, Codable {
+    @DocumentID var id: String?
+    var email: String
+    var lastLogin: Date
     
-    init(timestamp: Date) {
-        self.timestamp = timestamp
+    init(id: String? = nil, email: String, lastLogin: Date) {
+        self.id = id
+        self.email = email
+        self.lastLogin = lastLogin
     }
 }
