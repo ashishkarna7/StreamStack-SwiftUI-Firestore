@@ -6,11 +6,9 @@
 //
 
 import Foundation
-import FirebaseFirestore
-
 
 final class UserProfile: Identifiable, Codable {
-    @DocumentID var id: String?
+    var id: String?
     var email: String
     var lastLogin: Date
     

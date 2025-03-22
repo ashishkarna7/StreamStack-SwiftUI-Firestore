@@ -11,20 +11,20 @@ import Firebase
 
 @main
 struct StreamStackApp: App {
-    private let authenticationViewModel: AuthenticationViewModel
+    @StateObject private var authManager: AuthManager
     
     init() {
         FirebaseApp.configure()
-        print("Firebase configured: \(FirebaseApp.app() != nil)")
-        let authService = AuthService()
-        let repository = UserRepository()
-        let useCase = AuthenticationUseCase(authService: authService, userRepository: repository)
-        authenticationViewModel = AuthenticationViewModel(useCase: useCase)
+        _authManager = StateObject(wrappedValue: AuthManager())
     }
 
     var body: some Scene {
         WindowGroup {
-            AuthenticationView(viewModel: authenticationViewModel)
+            if authManager.isAuthenticated {
+                PostView().environmentObject(authManager)
+            } else {
+                LoginView().environmentObject(authManager)
+            }
         }
     }
 }
