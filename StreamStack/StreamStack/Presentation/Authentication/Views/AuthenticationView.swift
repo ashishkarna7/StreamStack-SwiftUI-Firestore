@@ -104,6 +104,7 @@ struct AuthenticationView: View {
                 .padding()
                 .frame(maxWidth: 300)
             }
+            .frame(maxHeight: .infinity)
             
             if isLoading {
                 Color.black.opacity(0.4)
@@ -121,6 +122,7 @@ struct AuthenticationView: View {
                     .foregroundColor(.white)
                     .cornerRadius(8)
                     .transition(.move(edge: .bottom))
+                    .padding(.bottom, 20)
                     .task {
                         try? await Task.sleep(nanoseconds: 1_000_000_000) // 1 seconds
                         withAnimation {
