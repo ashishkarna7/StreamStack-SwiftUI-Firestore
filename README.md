@@ -53,75 +53,49 @@ Before setting up the project, ensure you have the following:
 ## Installation Steps
 
 1. **Clone the Repository**  
-   ```bash
-   git clone https://github.com/ashishkarna7/StreamStack-SwiftUI-Firestore.git
-   cd StreamStack-SwiftUI-Firestore
-   ```
+   Clone the project from GitHub and navigate into the directory.
 
 2. **Open in Xcode**  
-   - Open the project file:  
-     ```bash
-     open StreamStack-SwiftUI-Firestore.xcodeproj
-     ```
+   Open the `.xcodeproj` file in Xcode.
 
 3. **Add Firebase via Swift Package Manager**  
    - In Xcode, go to `File > Add Packages`  
-   - Enter the Firebase SPM URL: `https://github.com/firebase/firebase-ios-sdk`  
-   - Select version `10.0.0` or later  
-   - Add the package and include the following dependencies:  
-     - `FirebaseAuth`  
-     - `FirebaseFirestore`  
-   - Click "Add Package" to resolve and download dependencies  
+   - Use the Firebase SPM URL and select version 10.0.0 or later  
+   - Include `FirebaseAuth` and `FirebaseFirestore` dependencies  
 
 4. **Configure Firebase**  
-   - Go to the [Firebase Console](https://console.firebase.google.com/), create a new project, and add an iOS app  
-   - Download the `GoogleService-Info.plist` file and drag it into the root of your Xcode project (ensure it’s added to the target)  
-   - Enable **Authentication** (Email/Password) and **Firestore** in the Firebase Console  
+   - Create a new project in the Firebase Console and add an iOS app  
+   - Download `GoogleService-Info.plist` and add it to the project root  
+   - Enable Email/Password Authentication and Firestore  
 
 5. **Initialize Firebase**  
-   - Ensure Firebase is initialized in your app entry point:  
-     ```swift
-     import FirebaseCore
-
-     @main
-     struct StreamStackApp: App {
-         init() {
-             FirebaseApp.configure()
-         }
-         
-         var body: some Scene {
-             WindowGroup {
-                 LoginView()
-                     .environmentObject(AuthManager())
-             }
-         }
-     }
-     ```
+   Ensure Firebase is set up in the app’s entry point.
 
 6. **Build and Run**  
-   - Select an iOS simulator (16.6+) or physical device  
-   - Press `Cmd + R` in Xcode to build and run the app  
+   Select an iOS simulator (16.6+) or device and run the app in Xcode.
 
 ---
 
 ## Documentation
 
 ### Project Structure
+
 - **Clean Architecture**:  
-  - **Presentation Layer**: SwiftUI views (`LoginView`, `PostView`) and view models (`LoginViewModel`, `PostViewModel`)  
-  - **Domain Layer**: Use cases (`UserUsecase`, `PostUseCase`) encapsulating business logic  
-  - **Data Layer**: Repositories (`UserRepository`, `PostRepository`) interfacing with Firebase  
+  - **Presentation Layer**: SwiftUI views and view models  
+  - **Domain Layer**: Use cases for business logic  
+  - **Data Layer**: Repositories interfacing with Firebase  
 - **SOLID Principles**:  
-  - **Single Responsibility**: Each class has a single purpose (e.g., `PostUseCase` manages post logic)  
-  - **Open/Closed**: Protocols (`UserRepositoryProtocol`, `PostRepositoryProtocol`) allow extension without modification  
-  - **Liskov Substitution**: Repository implementations can be swapped without affecting use cases  
-  - **Interface Segregation**: Separate protocols for auth and post operations  
-  - **Dependency Inversion**: High-level modules depend on abstractions, not concrete implementations  
+  - **Single Responsibility**: Each class has one purpose  
+  - **Open/Closed**: Protocols allow extension without modification  
+  - **Liskov Substitution**: Swappable repository implementations  
+  - **Interface Segregation**: Separate protocols for different operations  
+  - **Dependency Inversion**: Abstractions over concrete implementations  
 
 ### Key Components
-- **`AuthManager`**: Manages global authentication state with `isAuthenticated: Bool`, `login()`, and `logout()`  
-- **`UserProfile`**: Model for user data (`id: String?`, `email: String`, `lastLogin: Date`)  
-- **`Post`**: Model for post data (`id: String?`, `title: String`, `content: String`, `timestamp: Date`, `userId: String`)  
+
+- **AuthManager**: Manages authentication state (login/logout)  
+- **UserProfile**: Model for user data (ID, email, last login)  
+- **Post**: Model for post data (ID, title, content, timestamp, user ID)  
 
 ---
 
@@ -129,69 +103,46 @@ Before setting up the project, ensure you have the following:
 
 - **Language**: Swift 5.7+  
 - **Framework**: SwiftUI  
-- **Backend**: Firebase  
-  - **Firebase/Auth**: For email/password authentication  
-  - **Firebase/Firestore**: For post storage and retrieval  
+- **Backend**: Firebase (Authentication and Firestore)  
 - **Minimum iOS Version**: 16.6  
-- **Dependencies**: Managed via SPM:  
-  - `firebase-ios-sdk` (~> 10.0.0): Includes `FirebaseAuth` and `FirebaseFirestore`  
+- **Dependencies**: Firebase SDK via SPM (version 10.0.0+)  
 - **Architecture**: Clean Architecture with MVVM  
-- **Concurrency**: Swift Concurrency (`async/await`) for network operations  
+- **Concurrency**: Swift Concurrency for network operations  
 
 ---
 
 ## Troubleshooting
 
-- **"Firebase not configured" Error**:  
-  - Verify `GoogleService-Info.plist` is in the project root and `FirebaseApp.configure()` is called in the app’s entry point  
-- **"Package Resolution Failed"**:  
-  - Ensure an internet connection and retry `File > Add Packages` in Xcode. Check SPM cache (`Product > Clean Build Folder`)  
-- **Authentication Fails**:  
-  - Confirm Email/Password auth is enabled in Firebase Console  
-  - Test with valid credentials and check network status  
-- **Posts Not Loading**:  
-  - Ensure Firestore security rules allow authenticated access:  
-    ```plaintext
-    rules_version = '2';
-    service cloud.firestore {
-      match /databases/{database}/documents {
-        match /{document=**} {
-          allow read, write: if request.auth != null;
-        }
-      }
-    }
-    ```
-- **Build Errors**:  
-  - Set iOS deployment target to 16.6 (`Project Settings > General`)  
-  - Ensure Firebase SPM dependencies are correctly linked  
+- **Firebase Not Configured**: Ensure the `.plist` file is added and Firebase is initialized  
+- **Package Issues**: Check internet connection and clean Xcode build folder  
+- **Authentication Fails**: Verify Email/Password is enabled in Firebase  
+- **Posts Not Loading**: Check Firestore security rules for authenticated access  
+- **Build Errors**: Confirm iOS target is 16.6 and dependencies are linked  
 
 ---
 
 ## Technical Challenges & Solutions
 
-1. **Challenge**: Graceful Firebase Error Handling  
-   - **Solution**: Created custom error enums (`LoginError`, `PostUseCaseError`) and mapped Firebase `AuthErrorCode` values to user-friendly messages  
-
-2. **Challenge**: Real-Time Data Updates  
-   - **Solution**: Implemented manual refresh after CRUD operations; future iterations could use Firestore listeners for real-time updates  
-
-3. **Challenge**: Preventing Race Conditions  
-   - **Solution**: Used `isLoading` state with `defer` in view models to disable UI during async operations  
-
-4. **Challenge**: Ensuring Modular Design  
-   - **Solution**: Separated concerns into presentation, domain, and data layers, using protocols for dependency injection  
+1. **Challenge**: Firebase Error Handling  
+   - **Solution**: Custom error messages for user feedback  
+2. **Challenge**: Real-Time Updates  
+   - **Solution**: Manual refresh; listeners possible in future  
+3. **Challenge**: Race Conditions  
+   - **Solution**: Loading states to disable UI during operations  
+4. **Challenge**: Modular Design  
+   - **Solution**: Layered architecture with dependency injection  
 
 ---
 
 ## Assumptions & Design Decisions
 
 - **Assumptions**:  
-  - Firebase Auth manages unique email-based user accounts  
-  - Posts are scoped to authenticated users via `userId`  
-  - Firestore rules restrict access to authenticated users only  
+  - Unique email-based user accounts in Firebase Auth  
+  - Posts tied to users via `userId`  
+  - Authenticated access only in Firestore  
 - **Design Decisions**:  
-  - **SwiftUI**: Chosen for its declarative syntax and iOS 16.6+ compatibility  
-  - **SPM**: Preferred over CocoaPods for simpler dependency management within Xcode  
-  - **Manual Refresh**: Opted for simplicity over real-time Firestore listeners; can be extended later  
-  - **Error Handling**: Centralized in view models with detailed feedback for users  
-  - **Dependency Injection**: Protocols ensure testability and flexibility  
+  - SwiftUI for modern iOS development  
+  - SPM for dependency management  
+  - Manual refresh for simplicity  
+  - Centralized error handling in view models  
+  - Protocols for testability and flexibility  
