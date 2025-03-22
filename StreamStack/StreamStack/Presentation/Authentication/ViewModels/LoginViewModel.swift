@@ -122,14 +122,34 @@ enum LoginError: Error {
     }
 }
 
+/// Manages the authentication state for the application.
+/// Conforms to `ObservableObject` to enable SwiftUI views to react to authentication changes.
+/// This class provides a simple interface for tracking and modifying the user's login status.
 class AuthManager: ObservableObject {
-    @Published var isAuthenticated = false
     
-    func login() {
-        isAuthenticated = true
+    /// Indicates whether the user is currently authenticated.
+    /// This property is published to notify subscribers (e.g., SwiftUI views) of changes.
+    /// - Note: Defaults to `false`, assuming the user starts unauthenticated.
+    @Published var isAuthenticated: Bool = false
+    
+    /// Initializes the AuthManager with a default unauthenticated state.
+    init() {
+        // No additional setup needed; state starts as false
     }
     
+    /// Simulates logging in the user by setting the authenticated state to true.
+    /// - Warning: This is a placeholder implementation; real authentication should integrate with a backend service (e.g., Firebase Auth).
+    func login() {
+        // Update the published property to reflect a successful login
+        isAuthenticated = true
+        // In a production app, this would involve async calls to an auth service
+    }
+    
+    /// Simulates logging out the user by setting the authenticated state to false.
+    /// - Note: This resets the session; additional cleanup (e.g., clearing user data) could be added as needed.
     func logout() {
+        // Update the published property to reflect logout
         isAuthenticated = false
+        // Future enhancements might include notifying a backend or clearing local state
     }
 }
