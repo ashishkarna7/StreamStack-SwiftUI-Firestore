@@ -20,20 +20,35 @@ A modern iOS application built with SwiftUI and Firebase, featuring user authent
 
 ## Demo
 
-### Login
-<img src="https://github.com/ashishkarna7/StreamStack-SwiftUI-Firestore/blob/Ashish/Feature/Firestore/StreamStack/StreamStack/Examples-Gif/login.gif" alt="Login" width="300" />
-
-### Signup
-<img src="https://github.com/ashishkarna7/StreamStack-SwiftUI-Firestore/blob/Ashish/Feature/Firestore/StreamStack/StreamStack/Examples-Gif/signup.gif" alt="Sign-Up" width="300" />
-
-### Read/Write Post
-<img src="https://github.com/ashishkarna7/StreamStack-SwiftUI-Firestore/blob/Ashish/Feature/Firestore/StreamStack/StreamStack/Examples-Gif/read-write.gif" alt="Read/Write Post" width="300" />
-
-### Update/Delete Post
-<img src="https://github.com/ashishkarna7/StreamStack-SwiftUI-Firestore/blob/Ashish/Feature/Firestore/StreamStack/StreamStack/Examples-Gif/update-delete.gif" alt="Update/Delete Post" width="300" />
-
-### Firebase Firestore DB
-<img src="https://github.com/ashishkarna7/StreamStack-SwiftUI-Firestore/blob/Ashish/Feature/Firestore/StreamStack/StreamStack/Examples-Gif/firebase-firestore.gif" alt="Firebase Firestore DB" width="300" />
+<table>
+  <tr>
+    <td>
+      <strong>Login</strong><br>
+      <img src="https://github.com/ashishkarna7/StreamStack-SwiftUI-Firestore/blob/Ashish/Feature/Firestore/StreamStack/StreamStack/Examples-Gif/login.gif" alt="Login" width="300" />
+    </td>
+    <td>
+      <strong>Signup</strong><br>
+      <img src="https://github.com/ashishkarna7/StreamStack-SwiftUI-Firestore/blob/Ashish/Feature/Firestore/StreamStack/StreamStack/Examples-Gif/signup.gif" alt="Sign-Up" width="300" />
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <strong>Read/Write Post</strong><br>
+      <img src="https://github.com/ashishkarna7/StreamStack-SwiftUI-Firestore/blob/Ashish/Feature/Firestore/StreamStack/StreamStack/Examples-Gif/read-write.gif" alt="Read/Write Post" width="300" />
+    </td>
+    <td>
+      <strong>Update/Delete Post</strong><br>
+      <img src="https://github.com/ashishkarna7/StreamStack-SwiftUI-Firestore/blob/Ashish/Feature/Firestore/StreamStack/StreamStack/Examples-Gif/update-delete.gif" alt="Update/Delete Post" width="300" />
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <strong>Firebase Firestore DB</strong><br>
+      <img src="https://github.com/ashishkarna7/StreamStack-SwiftUI-Firestore/blob/Ashish/Feature/Firestore/StreamStack/StreamStack/Examples-Gif/firebase-firestore.gif" alt="Firebase Firestore DB" width="300" />
+    </td>
+    <td></td> <!-- Empty cell to maintain table structure -->
+  </tr>
+</table>
 
 ---
 
