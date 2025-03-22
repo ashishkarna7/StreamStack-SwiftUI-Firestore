@@ -7,26 +7,24 @@
 
 import SwiftUI
 import SwiftData
+import Firebase
 
 @main
 struct StreamStackApp: App {
-    var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            UserProfile.self,
-        ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-
-        do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
-        } catch {
-            fatalError("Could not create ModelContainer: \(error)")
-        }
-    }()
+    private let authenticationViewModel: AuthenticationViewModel
+    
+    init() {
+        FirebaseApp.configure()
+        print("Firebase configured: \(FirebaseApp.app() != nil)")
+        let authService = AuthService()
+        let repository = UserRepository()
+        let useCase = AuthenticationUseCase(authService: authService, userRepository: repository)
+        authenticationViewModel = AuthenticationViewModel(useCase: useCase)
+    }
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            AuthenticationView(viewModel: authenticationViewModel)
         }
-        .modelContainer(sharedModelContainer)
     }
 }
