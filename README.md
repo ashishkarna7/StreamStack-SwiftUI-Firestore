@@ -21,19 +21,19 @@ A modern iOS application built with SwiftUI and Firebase, featuring user authent
 ## Demo
 
 ### Login
-![Login](https://github.com/ashishkarna7/StreamStack-SwiftUI-Firestore/blob/Ashish/Feature/Firestore/StreamStack/StreamStack/Examples-Gif/login.gif)
+<img src="https://github.com/ashishkarna7/StreamStack-SwiftUI-Firestore/blob/Ashish/Feature/Firestore/StreamStack/StreamStack/Examples-Gif/login.gif" alt="Login" width="300" />
 
 ### Signup
-![Sign-Up](https://github.com/ashishkarna7/StreamStack-SwiftUI-Firestore/blob/Ashish/Feature/Firestore/StreamStack/StreamStack/Examples-Gif/signup.gif)
+<img src="https://github.com/ashishkarna7/StreamStack-SwiftUI-Firestore/blob/Ashish/Feature/Firestore/StreamStack/StreamStack/Examples-Gif/signup.gif" alt="Sign-Up" width="300" />
 
 ### Read/Write Post
-![Read/Write Post](https://github.com/ashishkarna7/StreamStack-SwiftUI-Firestore/blob/Ashish/Feature/Firestore/StreamStack/StreamStack/Examples-Gif/read-write.gif)
+<img src="https://github.com/ashishkarna7/StreamStack-SwiftUI-Firestore/blob/Ashish/Feature/Firestore/StreamStack/StreamStack/Examples-Gif/read-write.gif" alt="Read/Write Post" width="300" />
 
 ### Update/Delete Post
-![Update/Delete Post](https://github.com/ashishkarna7/StreamStack-SwiftUI-Firestore/blob/Ashish/Feature/Firestore/StreamStack/StreamStack/Examples-Gif/update-delete.gif)
+<img src="https://github.com/ashishkarna7/StreamStack-SwiftUI-Firestore/blob/Ashish/Feature/Firestore/StreamStack/StreamStack/Examples-Gif/update-delete.gif" alt="Update/Delete Post" width="300" />
 
 ### Firebase Firestore DB
-![Firebase Firestore DB](https://github.com/ashishkarna7/StreamStack-SwiftUI-Firestore/blob/Ashish/Feature/Firestore/StreamStack/StreamStack/Examples-Gif/firebase-firestore.gif)
+<img src="https://github.com/ashishkarna7/StreamStack-SwiftUI-Firestore/blob/Ashish/Feature/Firestore/StreamStack/StreamStack/Examples-Gif/firebase-firestore.gif" alt="Firebase Firestore DB" width="300" />
 
 ---
 
