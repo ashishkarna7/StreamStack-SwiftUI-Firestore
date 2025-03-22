@@ -21,19 +21,19 @@ A modern iOS application built with SwiftUI and Firebase, featuring user authent
 ## Demo
 
 ### Login
-<img src="https://github.com/ashishkarna7/StreamStack-SwiftUI-Firestore/blob/Ashish/Feature/Firestore/StreamStack/StreamStack/Examples-Gif/login.gif" alt="Login" width="300" height="200"/>
+<img src="https://github.com/ashishkarna7/StreamStack-SwiftUI-Firestore/blob/Ashish/Feature/Firestore/StreamStack/StreamStack/Examples-Gif/login.gif" alt="Login" width="300" />
 
 ### Signup
-<img src="https://github.com/ashishkarna7/StreamStack-SwiftUI-Firestore/blob/Ashish/Feature/Firestore/StreamStack/StreamStack/Examples-Gif/signup.gif" alt="Sign-Up" width="300" height="200"/>
+<img src="https://github.com/ashishkarna7/StreamStack-SwiftUI-Firestore/blob/Ashish/Feature/Firestore/StreamStack/StreamStack/Examples-Gif/signup.gif" alt="Sign-Up" width="300" />
 
 ### Read/Write Post
-<img src="https://github.com/ashishkarna7/StreamStack-SwiftUI-Firestore/blob/Ashish/Feature/Firestore/StreamStack/StreamStack/Examples-Gif/read-write.gif" alt="Read/Write Post" width="300" height="200"/>
+<img src="https://github.com/ashishkarna7/StreamStack-SwiftUI-Firestore/blob/Ashish/Feature/Firestore/StreamStack/StreamStack/Examples-Gif/read-write.gif" alt="Read/Write Post" width="300" />
 
 ### Update/Delete Post
-<img src="https://github.com/ashishkarna7/StreamStack-SwiftUI-Firestore/blob/Ashish/Feature/Firestore/StreamStack/StreamStack/Examples-Gif/update-delete.gif" alt="Update/Delete Post" width="300" height="200"/>
+<img src="https://github.com/ashishkarna7/StreamStack-SwiftUI-Firestore/blob/Ashish/Feature/Firestore/StreamStack/StreamStack/Examples-Gif/update-delete.gif" alt="Update/Delete Post" width="300" />
 
 ### Firebase Firestore DB
-<img src="https://github.com/ashishkarna7/StreamStack-SwiftUI-Firestore/blob/Ashish/Feature/Firestore/StreamStack/StreamStack/Examples-Gif/firebase-firestore.gif" alt="Firebase Firestore DB" width="300" height="200"/>
+<img src="https://github.com/ashishkarna7/StreamStack-SwiftUI-Firestore/blob/Ashish/Feature/Firestore/StreamStack/StreamStack/Examples-Gif/firebase-firestore.gif" alt="Firebase Firestore DB" width="300" />
 
 ---
 
@@ -78,24 +78,11 @@ Before setting up the project, ensure you have the following:
 
 ## Documentation
 
-### Project Structure
+To view the code documentation in Xcode, follow these steps:
 
-- **Clean Architecture**:  
-  - **Presentation Layer**: SwiftUI views and view models  
-  - **Domain Layer**: Use cases for business logic  
-  - **Data Layer**: Repositories interfacing with Firebase  
-- **SOLID Principles**:  
-  - **Single Responsibility**: Each class has one purpose  
-  - **Open/Closed**: Protocols allow extension without modification  
-  - **Liskov Substitution**: Swappable repository implementations  
-  - **Interface Segregation**: Separate protocols for different operations  
-  - **Dependency Inversion**: Abstractions over concrete implementations  
-
-### Key Components
-
-- **AuthManager**: Manages authentication state (login/logout)  
-- **UserProfile**: Model for user data (ID, email, last login)  
-- **Post**: Model for post data (ID, title, content, timestamp, user ID)  
+- Open the project in **Xcode**.
+- Navigate to **Product** > **Build Documentation** (or press `Shift + Command + Option + D`).
+- After the build completes, open **Xcode's Documentation Browser** by going to **Window** > **Developer Documentation**.
 
 ---
 
